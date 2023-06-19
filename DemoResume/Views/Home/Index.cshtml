@@ -1,0 +1,365 @@
+﻿@model DemoResume.Models.ResumeViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CURRICULUM VITAE</title>
+    <link rel="stylesheet" href="css/style.css">
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        img {
+            max-width: 200px;
+            max-height: 80px;
+            margin: 8px auto;
+            padding-right: 230px;
+        }
+
+        .text {
+            font-size: 15px;
+            text-align: left;
+        }
+
+        .outer {
+            width: 700px;
+            height: 100%;
+            border: 1px solid black;
+            margin: 8px auto;
+        }
+
+        hr.solid {
+            border-top: 3px solid #bbb;
+        }
+
+        .blRemover {
+            list-style-type: none;
+        }
+        /*table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }*/
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <center><h4 class="text-center" style="text-decoration:underline"> CURRICULUM VITAE</h4></center>
+        <br />
+        @*Personal_Details*@
+        <div class="container1">
+            <div class="container" style="margin-top: -30px;">
+                @foreach (var Personal_Details in Model.personalDetails)
+                {
+                    <div class="container">
+                        <div>
+                            <ul class="blRemover">
+                                <li class="list-item">
+                                    <i class="fas fa-envelope-open-text mx-4">
+                                        @Personal_Details.FullName
+                                    </i>
+                                </li>
+                                <li class="list-item">
+                                    <i class="fas fa-mobile-alt mx-4">
+                                        @Personal_Details.Profile
+                                    </i>
+                                </li>
+                                <li class="list-item">
+                                    <i class="fas fa-envelope-open-text mx-4">
+                                        @Personal_Details.ContactNo
+                                    </i>
+                                </li>
+                                <li class="list-item">
+                                    <i class="fas fa-envelope-open-text mx-4">
+                                        @Personal_Details.Email
+                                    </i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="image" style="float: right; padding-left: 80%;">
+                            <img src="~/image/Avtar.jpg" />
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        @*OBJECTIVE*@
+        <hr style="width:100%; height:10px; text-align:left;margin-left:0" />
+        <center>
+            <h5 class="text-uppercase bg-white text-dark py-2 rounded-pill" style="text-decoration:underline">OBJECTIVE</h5>
+        </center>
+        <div class="container">
+            <div class="container" style="margin-top: -30px;">
+                @foreach (var Objectives in Model.objectives)
+                {
+                    <div class="container">
+                        <div>
+                            <ul class="list-unstyled text-white-50 ml-5 py-2 text-left text">
+                                <li class="list-item">
+                                    <i class="fas fa-envelope-open-text mx-4">
+                                        @Objectives.Objective1
+                                    </i>
+                                </li>
+                                <li class="list-item">
+                                    <i class="fas fa-mobile-alt mx-4">
+                                        @Objectives.Objective2
+                                    </i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        @*Summary*@
+        <hr style="width:100%; text-align:left;margin-left:0" />
+        <center>
+            <h5 class="text-uppercase bg-white text-dark py-2 rounded-pill" style="text-decoration:underline">SUMMARY</h5>
+        </center>
+        <div class="container">
+            <div class="container" style="margin-top: -30px;">
+                @foreach (var Summary in Model.summaries)
+                {
+                    <div class="container">
+                        <div>
+                            <ul class="list-unstyled text-white-50 ml-5 py-2 text-left text">
+                                <li class="list-item">
+                                    <i class="fas fa-envelope-open-text mx-4">
+                                        @Summary.Details1
+                                    </i>
+                                </li>
+                                <li class="list-item">
+                                    <i class="fas fa-mobile-alt mx-4">
+                                        @Summary.Details2
+                                    </i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        @*EducationalInfo*@
+        <hr style="width:100%;  text-align:left;margin-left:0" />
+        <center>
+            <h5 class="text-uppercase bg-white text-dark py-2 rounded-pill" style="text-decoration:underline">EDUCATIONAL INFO</h5>
+        </center>
+
+        <div class="container">
+            <div style="padding-left:5%">
+                <table style="width: 95%; text-align: left; border: 1px solid black; border-collapse: collapse; ">
+                    <tr style="border: 1px solid black;">
+                        <th style="border: 1px solid black;">ExamPassed</th>
+                        <th style="border: 1px solid black;">Institution</th>
+                        <th style="border: 1px solid black;">Board</th>
+                        <th style="border: 1px solid black;">Passing Year</th>
+                    </tr>
+                    @foreach (var EducationalInfo in Model.educationalInfos)
+                    {
+                        <tr style="border: 1px solid black;">
+                            <td style="border: 1px solid black;">@EducationalInfo.ExamPassed</td>
+                            <td style="border: 1px solid black;">@EducationalInfo.Institution</td>
+                            <td style="border: 1px solid black;">@EducationalInfo.Board</td>
+                            <td style="border: 1px solid black;">@EducationalInfo.YearOfPassing</td>
+                        </tr>
+                    }
+                </table>
+
+            </div>
+        </div>
+        @*TechnicalInfo*@
+        <hr style="width:100%; text-align:left;margin-left:0" />
+        <center>
+            <h5 class="text-uppercase bg-white text-dark py-2 rounded-pill" style="text-decoration:underline">TECHNICAL INFO</h5>
+        </center>
+        <div class="container" style="margin-top: -20px;">
+            <div style="padding-left:5%">
+                <table class="table">
+
+                    @foreach (var TechnicalInfo in Model.technicalInfos)
+                    {
+                        <tr>
+                            <td><b>@TechnicalInfo.SkillName</b></td>
+                            <td style="padding-left:5%">@TechnicalInfo.SkillDescription</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+
+        <hr style="width:100%; text-align:left;margin-left:0" />
+        @*WORK EXPERINCE*@
+        <center>
+            <h5 class="text-uppercase bg-white text-dark py-2 rounded-pill" style="text-decoration:underline">WORK EXPERINCE</h5>
+            @*<h5 style="margin-top: -8px;">
+                    WORK EXPERINCE
+                </h5>*@
+        </center>
+        <div class="container" style="margin-top: -30px;">
+            @foreach (var workExperience in Model.workExperience)
+            {
+                <div class="container">
+                    <div>
+                        <ul class="list-unstyled text-white-50 ml-5 py-2 text-left text">
+                            <li class="list-item">
+                                <i class="fas fa-envelope-open-text mx-4">
+                                    <span><b>Organization Name: </b>@workExperience.OrgName</span>
+                                </i>
+                            </li>
+                            <li class="list-item">
+                                <i class="fas fa-mobile-alt mx-4">
+                                    <span><b>Role: </b>@workExperience.JobTitle</span>
+                                </i>
+                            </li>
+                            <li class="list-item">
+                                <i class="fas fa-envelope-open-text mx-4">
+                                    <span><b>From: </b>@workExperience.FromYear.Value.ToShortDateString()</span>
+                                    <span><b>to  </b>@workExperience.ToYear.Value.ToShortDateString()</span>
+                                </i>
+                                @*<li class="list-item">
+                                        <i class="fas fa-envelope-open-text mx-4">
+                                            <span><b>To: </b>@workExperience.ToYear.Value.ToShortDateString()</span>
+                                        </i>
+                                    <li class="list-item">*@
+                                <br />
+                                <i class="fas fa-envelope-open-text mx-4">
+                                    <span><b>Details: </b>@workExperience.ExpDescription</span>
+                                </i>
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @*ProjectInfo*@
+        <hr style="width:100%; text-align:left;margin-left:0" />
+        <center>
+            <h5 class="text-uppercase bg-white text-dark py-2 rounded-pill" style="text-decoration:underline">PROJECT INFO</h5>
+        </center>
+
+        <div class="container" style="margin-top: -30px;">
+
+            @foreach (var ProjectInfo in Model.projectInfos)
+            {
+                <div class="container">
+                    <div>
+                        <ul class="list-unstyled text-white-50 ml-5 py-2 text-left text">
+                            <li class="list-item">
+                                <i class="fas fa-envelope-open-text mx-4">
+                                    <span><b>Project Name: </b>@ProjectInfo.ProjectName</span>
+                                </i>
+                            </li>
+                            <li class="list-item">
+                                <i class="fas fa-mobile-alt mx-4">
+                                    <span><b>Role: </b>@ProjectInfo.ProjectRole</span>
+                                </i>
+                            </li>
+                            <li class="list-item">
+                                <i class="fas fa-envelope-open-text mx-4">
+                                    <span><b>Team Size: </b>@ProjectInfo.TeamSize</span>
+                                </i>
+                            <li class="list-item">
+                                <i class="fas fa-envelope-open-text mx-4">
+                                    <span><b>Duration: </b>@ProjectInfo.Duration</span>
+                                </i>
+                            <li class="list-item">
+                                <i class="fas fa-envelope-open-text mx-4">
+                                    <span><b>Details: </b>@ProjectInfo.ProjectDescription</span>
+                                </i>
+                        </ul>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+
+        @*PersonalDetails*@
+
+        <hr style="width:100%; text-align:left; margin-left:0" />
+        <center>
+            <h5 class="text-uppercase bg-white text-dark py-2 rounded-pill" style="text-decoration:underline">PERSONAL INFO</h5>
+        </center>
+        <div>
+            <div style="margin-top: -20px;">
+                <div style="padding-left:5%">
+                    <table class="table">
+                        @foreach (var Personal_Details in Model.personalDetails)
+                        {
+                            <tr>
+                                <td><b>Father's Name: </b></td>
+                                <td>@Personal_Details.FatherName</td>
+                            </tr>
+                            <tr>
+                                <td><b>Date Of Birth:  </b></td>
+                                <td>@Personal_Details.DOB.Value.ToShortDateString()</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address:  </b></td>
+                                <td>@Personal_Details.ShortAddress</td>
+                            </tr>
+                            <tr>
+                                <td><b>Gender:  </b></td>
+                                <td>@Personal_Details.Gender</td>
+                            </tr>
+                            <tr>
+                                <td><b>Nationality:  </b></td>
+                                <td>@Personal_Details.Nationality</td>
+                            </tr>
+                            <tr>
+                                <td><b>Religion:  </b></td>
+                                <td>@Personal_Details.Religion</td>
+                            </tr>
+                            <tr>
+                                <td><b>Marital Status:  </b></td>
+                                <td>@Personal_Details.MaritalStatus</td>
+                            </tr>
+                            <tr>
+                                <td><b>Language Known:  </b></td>
+                                <td>@Personal_Details.LanguageName</td>
+                            </tr>
+                            <tr>
+                                <td><b>Hobby:  </b></td>
+                                <td>@Personal_Details.Hobby</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                </divstyle="margin-top:>
+            </div>
+
+            @*Declartaions*@
+            <hr style="width:100%; text-align:left;margin-left:0" />
+            <center>
+                <h5 class="text-uppercase bg-white text-dark py-2 rounded-pill" style="text-decoration:underline">DECLARATION:</h5>
+            </center>
+            <div class="container" style="margin-top: -20px;">
+                <div style="padding-left:5%">
+
+                    @foreach (var Declartaion in Model.Declartions)
+                    {
+                        @Declartaion.add1
+                        <br />
+                        <br />
+                        <span><b>Place: </b> @Declartaion.dPlace</span>
+                        <br />
+                        <span><b>Date: </b> @Declartaion.dDate</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

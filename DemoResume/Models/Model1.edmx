@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ResumeDB3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Declartaion">
+          <Key>
+            <PropertyRef Name="DeclartaionId" />
+          </Key>
+          <Property Name="DeclartaionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="add1" Type="varchar(max)" />
+          <Property Name="dPlace" Type="varchar" MaxLength="20" />
+          <Property Name="dDate" Type="date" />
+          <Property Name="sig" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="EducationalInfo">
+          <Key>
+            <PropertyRef Name="Eduld" />
+          </Key>
+          <Property Name="Eduld" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExamPassed" Type="varchar" MaxLength="50" />
+          <Property Name="Institution" Type="varchar" MaxLength="50" />
+          <Property Name="Board" Type="varchar" MaxLength="50" />
+          <Property Name="YearOfPassing" Type="int" />
+        </EntityType>
+        <EntityType Name="Objective">
+          <Key>
+            <PropertyRef Name="ObjectiveId" />
+          </Key>
+          <Property Name="ObjectiveId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Objective1" Type="varchar(max)" />
+          <Property Name="Objective2" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Personal_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="100" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="Nationality" Type="varchar" MaxLength="50" />
+          <Property Name="ShortAddress" Type="varchar" MaxLength="100" />
+          <Property Name="FatherName" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="Religion" Type="varchar" MaxLength="20" />
+          <Property Name="Hobby" Type="varchar" MaxLength="100" />
+          <Property Name="LanguageName" Type="varchar" MaxLength="50" />
+          <Property Name="MaritalStatus" Type="varchar" MaxLength="50" />
+          <Property Name="PerPhoto" Type="varchar" MaxLength="50" />
+          <Property Name="Profile" Type="varchar" MaxLength="50" />
+          <Property Name="PerSignature" Type="varchar" MaxLength="50" />
+          <Property Name="Place" Type="varchar" MaxLength="20" />
+          <Property Name="CurrentDate" Type="date" />
+        </EntityType>
+        <EntityType Name="ProjectInfo">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="varchar" MaxLength="50" />
+          <Property Name="ProjectRole" Type="varchar" MaxLength="50" />
+          <Property Name="TeamSize" Type="int" />
+          <Property Name="Duration" Type="varchar" MaxLength="50" />
+          <Property Name="ProjectDescription" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Summary">
+          <Key>
+            <PropertyRef Name="ProfId" />
+          </Key>
+          <Property Name="ProfId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Details1" Type="varchar(max)" />
+          <Property Name="Details2" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TechnicalInfo">
+          <Key>
+            <PropertyRef Name="TSkillId" />
+          </Key>
+          <Property Name="TSkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillName" Type="varchar" MaxLength="50" />
+          <Property Name="SkillDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WorkExperience">
+          <Key>
+            <PropertyRef Name="ExpId" />
+          </Key>
+          <Property Name="ExpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrgName" Type="varchar" MaxLength="50" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="50" />
+          <Property Name="FromYear" Type="date" />
+          <Property Name="ToYear" Type="date" />
+          <Property Name="ExpDescription" Type="varchar(max)" />
+        </EntityType>
+        <EntityContainer Name="ResumeDB3ModelStoreContainer">
+          <EntitySet Name="Declartaion" EntityType="Self.Declartaion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EducationalInfo" EntityType="Self.EducationalInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Objective" EntityType="Self.Objective" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personal_Details" EntityType="Self.Personal_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectInfo" EntityType="Self.ProjectInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Summary" EntityType="Self.Summary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TechnicalInfo" EntityType="Self.TechnicalInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkExperience" EntityType="Self.WorkExperience" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ResumeDB3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Declartaion">
+          <Key>
+            <PropertyRef Name="DeclartaionId" />
+          </Key>
+          <Property Name="DeclartaionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="add1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dPlace" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="dDate" Type="DateTime" Precision="0" />
+          <Property Name="sig" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EducationalInfo">
+          <Key>
+            <PropertyRef Name="Eduld" />
+          </Key>
+          <Property Name="Eduld" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExamPassed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Institution" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Board" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YearOfPassing" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Objective">
+          <Key>
+            <PropertyRef Name="ObjectiveId" />
+          </Key>
+          <Property Name="ObjectiveId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Objective1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Objective2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Personal_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShortAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Religion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Hobby" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LanguageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PerPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Profile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PerSignature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Place" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="ProjectInfo">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectRole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TeamSize" Type="Int32" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Summary">
+          <Key>
+            <PropertyRef Name="ProfId" />
+          </Key>
+          <Property Name="ProfId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Details1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Details2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TechnicalInfo">
+          <Key>
+            <PropertyRef Name="TSkillId" />
+          </Key>
+          <Property Name="TSkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SkillDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WorkExperience">
+          <Key>
+            <PropertyRef Name="ExpId" />
+          </Key>
+          <Property Name="ExpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrgName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FromYear" Type="DateTime" Precision="0" />
+          <Property Name="ToYear" Type="DateTime" Precision="0" />
+          <Property Name="ExpDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ResumeDB3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Declartaions" EntityType="Self.Declartaion" />
+          <EntitySet Name="EducationalInfoes" EntityType="Self.EducationalInfo" />
+          <EntitySet Name="Objectives" EntityType="Self.Objective" />
+          <EntitySet Name="Personal_Details" EntityType="Self.Personal_Details" />
+          <EntitySet Name="ProjectInfoes" EntityType="Self.ProjectInfo" />
+          <EntitySet Name="Summaries" EntityType="Self.Summary" />
+          <EntitySet Name="TechnicalInfoes" EntityType="Self.TechnicalInfo" />
+          <EntitySet Name="WorkExperiences" EntityType="Self.WorkExperience" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ResumeDB3ModelStoreContainer" CdmEntityContainer="ResumeDB3Entities">
+          <EntitySetMapping Name="Declartaions">
+            <EntityTypeMapping TypeName="ResumeDB3Model.Declartaion">
+              <MappingFragment StoreEntitySet="Declartaion">
+                <ScalarProperty Name="DeclartaionId" ColumnName="DeclartaionId" />
+                <ScalarProperty Name="add1" ColumnName="add1" />
+                <ScalarProperty Name="dPlace" ColumnName="dPlace" />
+                <ScalarProperty Name="dDate" ColumnName="dDate" />
+                <ScalarProperty Name="sig" ColumnName="sig" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EducationalInfoes">
+            <EntityTypeMapping TypeName="ResumeDB3Model.EducationalInfo">
+              <MappingFragment StoreEntitySet="EducationalInfo">
+                <ScalarProperty Name="Eduld" ColumnName="Eduld" />
+                <ScalarProperty Name="ExamPassed" ColumnName="ExamPassed" />
+                <ScalarProperty Name="Institution" ColumnName="Institution" />
+                <ScalarProperty Name="Board" ColumnName="Board" />
+                <ScalarProperty Name="YearOfPassing" ColumnName="YearOfPassing" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Objectives">
+            <EntityTypeMapping TypeName="ResumeDB3Model.Objective">
+              <MappingFragment StoreEntitySet="Objective">
+                <ScalarProperty Name="ObjectiveId" ColumnName="ObjectiveId" />
+                <ScalarProperty Name="Objective1" ColumnName="Objective1" />
+                <ScalarProperty Name="Objective2" ColumnName="Objective2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personal_Details">
+            <EntityTypeMapping TypeName="ResumeDB3Model.Personal_Details">
+              <MappingFragment StoreEntitySet="Personal_Details">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="ShortAddress" ColumnName="ShortAddress" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Hobby" ColumnName="Hobby" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="PerPhoto" ColumnName="PerPhoto" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="PerSignature" ColumnName="PerSignature" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectInfoes">
+            <EntityTypeMapping TypeName="ResumeDB3Model.ProjectInfo">
+              <MappingFragment StoreEntitySet="ProjectInfo">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectRole" ColumnName="ProjectRole" />
+                <ScalarProperty Name="TeamSize" ColumnName="TeamSize" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="ProjectDescription" ColumnName="ProjectDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Summaries">
+            <EntityTypeMapping TypeName="ResumeDB3Model.Summary">
+              <MappingFragment StoreEntitySet="Summary">
+                <ScalarProperty Name="ProfId" ColumnName="ProfId" />
+                <ScalarProperty Name="Details1" ColumnName="Details1" />
+                <ScalarProperty Name="Details2" ColumnName="Details2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TechnicalInfoes">
+            <EntityTypeMapping TypeName="ResumeDB3Model.TechnicalInfo">
+              <MappingFragment StoreEntitySet="TechnicalInfo">
+                <ScalarProperty Name="TSkillId" ColumnName="TSkillId" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="SkillDescription" ColumnName="SkillDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkExperiences">
+            <EntityTypeMapping TypeName="ResumeDB3Model.WorkExperience">
+              <MappingFragment StoreEntitySet="WorkExperience">
+                <ScalarProperty Name="ExpId" ColumnName="ExpId" />
+                <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="FromYear" ColumnName="FromYear" />
+                <ScalarProperty Name="ToYear" ColumnName="ToYear" />
+                <ScalarProperty Name="ExpDescription" ColumnName="ExpDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
